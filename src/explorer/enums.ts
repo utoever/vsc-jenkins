@@ -1,6 +1,5 @@
-'use strict';
-
 export enum ResourceType {
+
     System = "jenkins:system",
     Views = "jenkins:views",
     View = "jenkins:view",
@@ -8,4 +7,5 @@ export enum ResourceType {
     Build = "jenkins:build",
     Nodes = "jenkins:nodes",
     Node = "jenkins:node",
+
 }

@@ -1,9 +1,9 @@
-import { TreeDataProvider, ExtensionContext, window, TreeItem } from "vscode";
+import { ExtensionContext, TreeDataProvider, TreeItem, window } from "vscode";
 import { BaseExplorerNode } from "../explorer/views";
 import { ViewsNode } from "./nodes";
 
 export class ViewsProvider implements TreeDataProvider<BaseExplorerNode> {
-    
+
     private _loading: Promise<void> | undefined;
 
     constructor(protected context: ExtensionContext, protected node: Promise<ViewsNode>) { }
@@ -14,7 +14,9 @@ export class ViewsProvider implements TreeDataProvider<BaseExplorerNode> {
             this._loading = undefined;
         }
 
-        if (node === undefined) node = await this.node;
+        if (node === undefined) {
+            node = await this.node;
+        }
 
         try {
             return await node.getChildren();

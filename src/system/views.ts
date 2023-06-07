@@ -1,4 +1,3 @@
-'use strict';
 import { ExtensionContext, TreeItem, TreeItemCollapsibleState } from 'vscode';
 
 import { ResourceType } from '../explorer/enums';
@@ -8,6 +7,7 @@ import { System } from '../system/models';
 import { ViewsNode } from '../views/nodes';
 
 export class SystemNode extends ExplorerNode {
+
     children: Promise<[NodesNode, ViewsNode]>;
 
     constructor(context: ExtensionContext, protected system: System) {
@@ -34,4 +34,5 @@ export class SystemNode extends ExplorerNode {
         item.contextValue = ResourceType.System;
         return item;
     }
+
 }

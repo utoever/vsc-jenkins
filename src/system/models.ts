@@ -1,7 +1,6 @@
-'use strict';
 import { JenkinsExecutor } from "../jenkins/executors";
-import { Views } from "../views/models";
 import { Nodes } from "../nodes/models";
+import { Views } from "../views/models";
 
 export class System {
 

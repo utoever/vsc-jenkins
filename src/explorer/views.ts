@@ -5,9 +5,7 @@ export abstract class BaseExplorerNode extends Disposable {
     protected children: any;
     protected disposable: Disposable | undefined;
 
-    constructor(
-        public readonly context: ExtensionContext
-    ) {
+    constructor(public readonly context: ExtensionContext) {
         super(() => this.dispose());
     }
 
@@ -38,10 +36,7 @@ export abstract class BaseExplorerNode extends Disposable {
 
 export class MessageNode extends BaseExplorerNode {
 
-    constructor(
-        public readonly context: ExtensionContext,
-        private readonly message: string
-    ) {
+    constructor(public readonly context: ExtensionContext, private readonly message: string) {
         super(context);
     }
 
@@ -57,7 +52,7 @@ export class MessageNode extends BaseExplorerNode {
     handleError(err: Error): ExplorerNode[] | Promise<ExplorerNode[]> {
         return [];
     }
-        
+
 }
 
 export abstract class ExplorerNode extends BaseExplorerNode {

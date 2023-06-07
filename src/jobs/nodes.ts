@@ -1,9 +1,8 @@
-'use strict';
-import { TreeItem, TreeItemCollapsibleState, ExtensionContext } from 'vscode';
+import { ExtensionContext, TreeItem, TreeItemCollapsibleState } from 'vscode';
+import { BuildNode, BuildsNode } from "../builds/views";
 import { ResourceType } from "../explorer/enums";
 import { ExplorerNode } from '../explorer/views';
 import { Job } from "../jobs/models";
-import { BuildNode, BuildsNode } from "../builds/views";
 import { ViewsNode } from "../views/nodes";
 
 export class JobNode extends ExplorerNode {
@@ -24,7 +23,7 @@ export class JobNode extends ExplorerNode {
         .then(views => new ViewsNode(this.context, views));
 
     getJob = (): Promise<ExplorerNode[]> => {
-        var promises = [];
+        const promises = [];
         if(this.job.hasBuilds())
             promises.push(this.getBuilds())
         if(this.job.hasViews())
@@ -48,4 +47,5 @@ export class JobNode extends ExplorerNode {
             item.iconPath = this.context.asAbsolutePath(this.job.getIconPath());
         return item;
     }
+
 }

@@ -1,4 +1,3 @@
-'use strict';
 import { JenkinsExecutor } from "../jenkins/executors";
 import { Job } from "../jobs/models";
 import { IView } from "./typing";
@@ -16,7 +15,7 @@ export class View {
         .then(job => new Job(job, this.executor));
 
     getJobsList = (): Promise<Job[]> => {
-        var jobsPromises: any[] = this.view.jobs.map(job => this.getJob(job.name));
+        const jobsPromises: any[] = this.view.jobs.map(job => this.getJob(job.name));
         return Promise.all(jobsPromises);
     };
 

@@ -4,10 +4,10 @@
   "description": "Manage Jenkins",
   "icon": "images/icon.png",
   "version": "0.0.1",
-  "publisher": "p1c2u",
+  "publisher": "utoever",
   "license": "MIT",
   "engines": {
-    "vscode": "^1.31.0"
+    "vscode": "^1.75.0"
   },
   "categories": [
     "Other"
@@ -17,18 +17,15 @@
     "CI"
   ],
   "bugs": {
-    "url": "https://github.com/p1c2u/vscode-jenkins/issues",
+    "url": "https://github.com/utoever/vsc-jenkins/issues",
     "email": "maciag.artur@gmail.com"
   },
-  "homepage": "https://github.com/p1c2u/vscode-jenkins",
+  "homepage": "https://github.com/utoever/vsc-jenkins",
   "repository": {
     "type": "git",
-    "url": "https://github.com/p1c2u/vscode-jenkins.git"
+    "url": "https://github.com/utoever/vsc-jenkins.git"
   },
   "activationEvents": [
-    "onView:jenkins.views.system",
-    "onView:jenkins.views.nodes",
-    "onView:jenkins.views.views",
     "onDebugInitialConfigurations"
   ],
   "main": "./out/extension",
@@ -113,7 +110,7 @@
       "properties": {
         "jenkins.views.system.enabled": {
           "type": "boolean",
-          "default": false,
+          "default": true,
           "description": "Specifies whether to show the _System_ view."
         },
         "jenkins.views.nodes.enabled": {
@@ -134,21 +131,22 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run build",
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
     "build": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
     "test": "npm run build && node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
-    "typescript": "^3.2.1",
-    "vscode": "^1.1.30",
-    "@types/node": "^7.0.43",
-    "@types/mocha": "^2.2.42"
+    "typescript": "^5.0.4",
+    "@types/vscode": "^1.75.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x"
   },
   "dependencies": {
-    "applicationinsights": "^1.0.5",
-    "yaml-config-loader": "^2.0.1",
-    "jenkins": "0.23.0"
+    "applicationinsights": "2.7.0",
+    "yaml-config-loader": "2.0.1",
+    "jenkins": "1.0.2"
   }
 }

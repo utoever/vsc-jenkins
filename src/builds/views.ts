@@ -1,8 +1,7 @@
-'use strict';
-import { TreeItem, TreeItemCollapsibleState, Uri, ExtensionContext, window, ColorInformation } from 'vscode';
+import { ColorInformation, ExtensionContext, TreeItem, TreeItemCollapsibleState, Uri, window } from 'vscode';
+import { Build, Builds } from "../builds/models";
 import { ResourceType } from "../explorer/enums";
 import { ExplorerNode } from '../explorer/views';
-import { Build, Builds } from "../builds/models";
 
 export class BuildNode extends ExplorerNode {
 

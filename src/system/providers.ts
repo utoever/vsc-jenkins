@@ -1,10 +1,10 @@
-import { TreeDataProvider, ExtensionContext, window, TreeItem } from "vscode";
+import { ExtensionContext, TreeDataProvider, TreeItem, window } from "vscode";
 import { BaseExplorerNode } from "../explorer/views";
-import { SystemNode } from "./views";
 import { ViewNode } from "../views/nodes";
+import { SystemNode } from "./views";
 
 export class SystemProvider implements TreeDataProvider<BaseExplorerNode> {
-    
+
     private _root?: BaseExplorerNode;
     private _loading: Promise<void> | undefined;
 
@@ -17,9 +17,10 @@ export class SystemProvider implements TreeDataProvider<BaseExplorerNode> {
             await this._loading;
             this._loading = undefined;
         }
-    
-        if (node === undefined) node = this._root;
 
+        if (node === undefined) {
+            node = this._root;
+        }
         try {
             return await node.getChildren();
         } catch (err) {
@@ -33,7 +34,7 @@ export class SystemProvider implements TreeDataProvider<BaseExplorerNode> {
     }
 
     async copyViewURL(node: ViewNode): Promise<void> {
-        var url = node.getURL();
+        const url = node.getURL();
     }
 
 }

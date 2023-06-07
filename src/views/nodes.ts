@@ -1,9 +1,8 @@
-'use strict';
-import { TreeItem, TreeItemCollapsibleState, ExtensionContext } from 'vscode';
+import { ExtensionContext, TreeItem, TreeItemCollapsibleState } from 'vscode';
 import { ResourceType } from "../explorer/enums";
 import { ExplorerNode } from '../explorer/views';
 import { JobNode } from '../jobs/nodes';
-import { Views, View } from "../views/models";
+import { View, Views } from "../views/models";
 
 export class ViewNode extends ExplorerNode {
 
@@ -51,4 +50,5 @@ export class ViewsNode extends ExplorerNode {
         item.contextValue = ResourceType.Views;
         return item;
     }
+
 }

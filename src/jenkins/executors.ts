@@ -1,8 +1,12 @@
-'use strict';
+import Jenkins from "jenkins";
 
 export class JenkinsExecutor {
 
-    constructor(protected client) { }
+    protected client: Jenkins;
+
+    constructor(client: Jenkins) {
+        this.client = client;
+    }
 
     getInfo = (): Promise<any> => this.client.info();
 

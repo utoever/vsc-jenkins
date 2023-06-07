@@ -1,7 +1,6 @@
-'use strict';
 import { JenkinsExecutor } from "../jenkins/executors";
-import { Result } from "./enums";
 import { BallColor } from "../jobs/enums";
+import { Result } from "./enums";
 
 export class Build {
 
@@ -12,7 +11,7 @@ export class Build {
     getResult = (): Result => <Result>this.build.result;
 
     getColor = (): BallColor => {
-        var map: { [result: string]: BallColor; } = { };
+        const map: { [result: string]: BallColor; } = { };
         map[Result.Success] = BallColor.Blue;
         map[Result.Unstable] = BallColor.Yellow;
         map[Result.Failure] = BallColor.Red;

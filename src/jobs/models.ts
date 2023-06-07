@@ -1,6 +1,5 @@
-'use strict';
-import { JenkinsExecutor } from "../jenkins/executors";
 import { Build, Builds } from "../builds/models";
+import { JenkinsExecutor } from "../jenkins/executors";
 import { View, Views } from "../views/models";
 import { BallColor } from "./enums";
 
@@ -16,8 +15,8 @@ export class Job {
         .then(build => new Build(build, this.executor));
 
     getBuildsList = (limit: number = 10): Promise<Build[]> => {
-        var latestbuilds = this.job.builds.slice(0, limit + 1)
-        var buildsPromises: any[] = latestbuilds.map(build => this.getBuild(this.job.name, build.number));
+        const latestbuilds = this.job.builds.slice(0, limit + 1)
+        const buildsPromises: any[] = latestbuilds.map(build => this.getBuild(this.job.name, build.number));
         return Promise.all(buildsPromises);
     };
 

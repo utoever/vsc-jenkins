@@ -1,6 +1,5 @@
-'use strict';
-
 export enum BallColor {
+
     Red = "red",
     RedAnime = "red_anime",
     Yellow = "yellow",
@@ -15,4 +14,5 @@ export enum BallColor {
     AbortedAnime = "aborted_anime",
     Notbuilt = "nobuilt",
     NotbuiltAnime = "nobuilt_anime",
+
 }
